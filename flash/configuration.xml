@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <apiURL>http://api.radio4g.webtv.flumotion.com/</apiURL>
+  <apiKey>kXZNkqJ4g4zzbptd</apiKey>
+  <podId>10</podId>
+  <campaignId>1</campaignId>
+  <javascriptCallbackFunction>onFlashCallbackFunction</javascriptCallbackFunction>
+  <controlBarMode>none</controlBarMode>
+  <autoPlay>true</autoPlay>
+
+  <plugin src="FlumotionCDNPlugin.swf">
+    <metadata id="http://www.flumotion.com/plugins/flumotioncdn/1.0">
+      <mobile>true</mobile>
+      <mini>true</mini>
+      <low>true</low>
+      <med>true</med>
+      <high>true</high>
+      <hd>true</hd>
+    </metadata>
+  </plugin>
+
+  <plugin src="MASTPlugin.swf"></plugin>
+  <metadata id="http://www.akamai.com/mast/1.0"></metadata>
+</config>
