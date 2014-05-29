@@ -1,0 +1,49 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>PoC: Strobe with MAST</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+<body>
+<!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container">
+  <h1 class="page-header">Strobe with MAST<br><small>Hiding player when advert finishes</small></h1>
+  <div id="wrapper">
+    <p>Alternative content</p>
+  </div>
+</div>
+
+<!-- ref:js //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<!-- endref -->
+<!-- ref:js //cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.js -->
+<script src="bower_components/swfobject/swfobject/src/swfobject.js"></script>
+<!-- endref -->
+
+<script>
+
+  // embed Strobe Player
+  swfobject.embedSWF('flash/PlayerStrobe.swf',
+      'wrapper', '720', '460', '9.0.0', 'expressInstall.swf',
+      {configuration: 'configuration.xml'}, {}, {base: 'flash'});
+
+  // Strobe Player callbacks
+  window.onFlashCallbackFunction = function(playerId, eventName) {
+
+    // hide player when the advert finishes
+    if (eventName === 'play') {
+      $('#wrapper').hide();
+    }
+  };
+</script>
+</body>
+</html>
